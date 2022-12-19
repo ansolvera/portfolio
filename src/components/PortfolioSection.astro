@@ -1,0 +1,33 @@
+---
+import Container from "../components/Container.astro";
+import Swiper from "../components/Swiper.jsx";
+
+const sectionName = "Portfolio";
+const sectionHeading = "Check out some of my past work";
+const sectionSubheading =
+	"Get a feel for my unique design style by taking a look at some selections from my portfolio.";
+---
+
+<section class="section py-9">
+	<Container>
+		<div class="helmet text-center mb-8 mx-auto">
+			<p class="eyebrow mb-4">{sectionName}</p>
+			<h2 class="mb-4">{sectionHeading}</h2>
+			<p>{sectionSubheading}</p>
+		</div>
+	</Container>
+	<div class="swiper--wrapper">
+		<Swiper client:only="react" />
+	</div>
+</section>
+
+<style lang="scss">
+	@import "../styles/variables.scss";
+
+	.swiper--wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100vw;
+	}
+</style>

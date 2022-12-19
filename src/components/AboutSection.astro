@@ -1,0 +1,99 @@
+---
+import Container from "./Container.astro";
+import Button from "./Button.astro";
+import { Icon } from "astro-icon";
+
+const sectionName = "About Me";
+const sectionHeading = "A little bit about who I am";
+const sectionSubheading =
+	"I'm a self-taught UI/UX designer and front-end JavaScript developer with 5+ years of experience in end-to-end digital design.";
+---
+
+<section id="about" class="section py-9">
+	<Container>
+		<div class="grid-cols-2 gap-9">
+			<div class="about--left">
+				<div class="helmet mb-8">
+					<p class="eyebrow mb-4">{sectionName}</p>
+					<h2 class="mb-4">{sectionHeading}</h2>
+					<p class="mb-6">
+						{sectionSubheading}
+					</p>
+					<p class="mb-2">
+						Over this time, I've had the opportunity to work with several
+						organizations, like <a href="https://mist.rocks" target="_blank"
+							>MIST Digital,</a
+						>
+						<a href="https://howtogettheguy.com" target="_blank"
+							>How to Get the Guy,</a
+						> and the <a href="https://aynrand.org" target="_blank"
+							>Ayn Rand Institute.</a
+						>
+					</p>
+					<p>
+						If you'd like to reach out about working together, just click the button
+						below to get started.
+					</p>
+				</div>
+				<div class="btn--wrapper is-flex-start">
+					<Button href="#contact" label="Get started">
+						<Icon name="ri:arrow-right-circle-fill" slot="icon--right" />
+					</Button>
+				</div>
+			</div>
+			<div class="about--right">
+				<img
+					src="assets/img/about-photo-mobile.webp"
+					alt=""
+					class="about--photo--mobile shadow-xl"
+				/>
+				<img
+					src="assets/img/about-photo.webp"
+					alt=""
+					class="about--photo shadow-xl"
+				/>
+			</div>
+		</div>
+	</Container>
+</section>
+
+<style lang="scss">
+	@import "../styles/variables.scss";
+	@import "../styles/mixins.scss";
+
+	.about--left,
+	.about--right {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.about--left {
+		align-items: flex-start;
+	}
+
+	.about--left a {
+		font-weight: 500;
+		color: map-get($primary, "500");
+	}
+
+	.about--right {
+		align-items: center;
+	}
+
+	.about--right img {
+		width: 80%;
+		height: auto;
+		border-radius: 0.5rem;
+	}
+
+	.about--photo--mobile {
+		@include hidden-for-desktop;
+	}
+
+	.about--photo {
+		transform: scale(1) perspective(200rem) rotateX(2deg) rotateY(-11deg)
+			rotate(2deg);
+		@include hidden-for-mobile;
+	}
+</style>

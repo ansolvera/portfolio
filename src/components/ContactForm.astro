@@ -1,0 +1,96 @@
+---
+import Button from "./Button.astro";
+import { Icon } from "astro-icon";
+---
+
+<form action="#" class="contact--form">
+	<div class="input--wrapper">
+		<input type="text" class="form--input" placeholder="First name" />
+		<input type="text" class="form--input" placeholder="Last name" />
+	</div>
+	<input type="email" class="form--input" placeholder="Email address" />
+	<textarea
+		name="message"
+		id="message"
+		placeholder="Tell me about your project ..."></textarea>
+	<Button href="#" label="Submit">
+		<Icon name="ri:send-plane-fill" slot="icon--left" />
+	</Button>
+</form>
+
+<style lang="scss">
+	@import "../styles/variables.scss";
+
+	form {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: stretch;
+		gap: map-get($spacing, "400");
+		font-size: map-get($font-size, "300");
+		line-height: 1.33;
+		color: map-get($neutrals, "700");
+	}
+
+	form input,
+	form textarea {
+		padding-block: map-get($spacing, "300");
+		padding-inline: map-get($spacing, "400");
+		background-color: rgba(map-get($neutrals, "100"), 0.25);
+		border: 1px solid map-get($neutrals, "100");
+		border-radius: 0.25rem;
+
+		&:focus {
+			border-color: map-get($primary, "500");
+		}
+	}
+
+	.input--wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: map-get($spacing, "400");
+		width: 100%;
+	}
+
+	.input--wrapper input {
+		width: 100%;
+	}
+
+	form textarea {
+		min-height: 15rem;
+		resize: none;
+	}
+
+	form input[type="submit"] {
+		position: relative;
+		display: inline-flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: map-get($spacing, "200");
+		padding-block: map-get($spacing, "400");
+		padding-inline: map-get($spacing, "600");
+		background-color: map-get($primary, "500");
+		border: 1px solid transparent;
+		border-radius: 0.25rem;
+		box-shadow: 0 10px 40px -10px rgba(map-get($primary, "500"), 0.5);
+		cursor: pointer;
+		font-size: map-get($font-size, "400");
+		line-height: 1;
+		font-weight: 600;
+		text-align: center;
+		color: $white;
+		white-space: no-wrap;
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			background-color: map-get($primary, "400");
+		}
+
+		&:active,
+		:visited {
+			background-color: map-get($primary, "600");
+		}
+	}
+</style>

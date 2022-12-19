@@ -1,7 +1,115 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+import Button from "../components/Button.astro";
+import { Icon } from "astro-icon";
+import Logos from "../components/Logos.astro";
+import AboutSection from "../components/AboutSection.astro";
+import PortfolioSection from "../components/PortfolioSection.astro";
+import BlogSection from "../components/BlogSection.astro";
+import TestimonialSection from "../components/TestimonialSection.astro";
+import ContactSection from "../components/ContactSection.astro";
 ---
 
-<body>
-	<h1>Astro</h1>
-	<h2>My Astro Site</h2>
-</body>
+<Layout>
+	<section id="hero" class="section py-9">
+		<Container>
+			<div class="hero--wrapper">
+				<div class="heading--group">
+					<img src="/assets/img/avatar.webp" alt="" class="hero--avatar" />
+					<h1 class="hero--heading mb-4">
+						Hey! 👋🏼 My name's Alex Sanchez, and I'm a <br /><span>UI/UX designer</span
+						>
+					</h1>
+					<p class="hero--subheading mb-6">
+						Outside of my current full-time commitments, I also accept a select number
+						of freelance design clients. Click on the button below to get started.
+					</p>
+					<div class="btn--wrapper is-centered">
+						<Button href="#contact" label="Get started">
+							<Icon name="ri:arrow-right-circle-fill" slot="icon--right" />
+						</Button>
+						<Button href="#" label="Download CV" isSecondary>
+							<Icon name="ri:download-fill" slot="icon--left" />
+						</Button>
+					</div>
+				</div>
+			</div>
+		</Container>
+	</section>
+	<div class="py-9">
+		<Logos />
+	</div>
+	<AboutSection />
+	<PortfolioSection />
+	<BlogSection />
+	<TestimonialSection />
+	<ContactSection />
+</Layout>
+
+<style lang="scss">
+	@import "../styles/variables.scss";
+	@import "../styles/mixins.scss";
+
+	// ****************************************
+	// HERO SECTION
+	// ****************************************
+
+	.hero--wrapper,
+	.heading--group {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.heading--group {
+		flex-direction: column;
+		max-width: map-get($breakpoints, "md");
+		text-align: center;
+	}
+
+	.hero--avatar {
+		width: 15rem;
+		height: 15rem;
+	}
+
+	h1 br {
+		@include hidden-for-mobile;
+	}
+
+	h1 span {
+		color: map-get($primary, "500");
+
+		@supports (background-text: clip) {
+			background-image: linear-gradient(
+				to right,
+				map-get($secondary, "500"),
+				map-get($primary, "500")
+			);
+			background-clip: text;
+			color: transparent;
+		}
+	}
+
+	.btn--wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		gap: map-get($spacing, "400");
+		width: 100%;
+
+		@media screen and (min-width: map-get($breakpoints, "md")) {
+			flex-direction: row;
+			align-items: center;
+		}
+	}
+
+	.btn--wrapper.is-centered {
+		justify-content: center;
+	}
+
+	.btn--wrapper.is-flex-start {
+		justify-content: flex-start;
+	}
+</style>

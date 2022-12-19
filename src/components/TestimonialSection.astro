@@ -1,0 +1,65 @@
+---
+import Container from "./Container.astro";
+import Testimonial from "./Testimonial.astro";
+
+const sectionName = "Testimonials";
+const sectionHeading = "Here's what past clients have to say";
+---
+
+<section id="testimonials" class="section py-9">
+	<Container>
+		<div class="helmet text-center mb-8 mx-auto">
+			<p class="eyebrow mb-4">{sectionName}</p>
+			<h2>{sectionHeading}</h2>
+		</div>
+		<div class="grid-cols-3 gap-4">
+			<div class="skew skew--left">
+				<Testimonial
+					author="Eliav Perez"
+					title="CTO, Infinitude"
+					content="We hired Alex to take our design files and create a custom WordPress theme for our website. The theme looks great, and we are thrilled with the end result! Alex was extremely helpful and professional throughout the entire process. We are very happy with his work and would love to work with him again in the future."
+					src="assets/img/eliav.png"
+				/>
+			</div>
+			<div class="skew skew--right">
+				<Testimonial
+					author="Ruth Ashley"
+					title="Lead Consultant, ACES"
+					content="As a novice to the world of website design, I learned so much from Alex's knowledge, skills, and abilities, and I highly recommend using Alex's craft. Thank you, Alex, for giving me the confidence and online tools that will uplift my consulting business."
+					src="assets/img/ruth.png"
+				/>
+			</div>
+			<div class="skew skew--left">
+				<Testimonial
+					author="Tim Brunetto"
+					title="Founder and CEO, Chaos Entertainment"
+					content="It was imperative to have a custom, comprehensive, and scalable website that could showcase the best features of my video game. Alex helped me achieve this at a rate that allowed me to sleep easily at night. He is very polite, pays attention to your needs, and delivers results. Five stars!"
+					src="assets/img/tim.png"
+				/>
+			</div>
+		</div>
+	</Container>
+</section>
+
+<style lang="scss">
+	@import "../styles/variables.scss";
+
+	.skew {
+		transition: 0.3s transform ease-in-out;
+		&:hover {
+			transform: rotate(0);
+		}
+	}
+
+	.skew--left {
+		@media screen and (min-width: map-get($breakpoints, "lg")) {
+			transform: rotate(-1.25deg);
+		}
+	}
+
+	.skew--right {
+		@media screen and (min-width: map-get($breakpoints, "lg")) {
+			transform: rotate(1.25deg);
+		}
+	}
+</style>

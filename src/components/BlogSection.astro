@@ -1,0 +1,49 @@
+---
+import Container from "../components/Container.astro";
+import BlogCard from "./BlogCard.astro";
+
+const sectionName = "Blog";
+const sectionHeading = "Read some of my previous blog posts";
+const sectionSubheading =
+	"Get a behind-the-scenes look at my design process, and learn more about how I approach building websites from scratch.";
+---
+
+<section id="blog" class="section py-9">
+	<Container>
+		<div class="helmet text-center mb-8 mx-auto">
+			<p class="eyebrow mb-4">{sectionName}</p>
+			<h2 class="mb-4">{sectionHeading}</h2>
+			<p>{sectionSubheading}</p>
+		</div>
+		<div class="grid-cols-4 gap-6">
+			<BlogCard
+				href="https://blog.prototypr.io/why-webflow-is-the-best-web-design-program-right-now-f128aef8b45"
+				src="assets/img/webflow-thumbnail.webp"
+				title="Why Webflow Is the Best Design Tool Right Now"
+				excerpt="Among a slew of poor-quality DIY site builders, Webflow stands out as a powerful solution for code-free web design and development."
+			/>
+			<BlogCard
+				href="https://medium.com/ux-planet/how-to-really-think-like-a-designer-ff40b590e5f3"
+				src="assets/img/design-thinking-thumbnail.webp"
+				title="How to (Really) Think Like a Designer"
+				excerpt="The problem with Design Thinking, and why linear, process-based creative frameworks so often miss the mark."
+			/>
+			<BlogCard
+				href="https://medium.com/@alexsanchezdesigns/is-wordpress-dying-c72235bf8f81"
+				src="assets/img/wordpress-thumbnail.webp"
+				title="Is WordPress Dying?"
+				excerpt="It's a common refrain among some within the web development community, but is it actually true?"
+			/>
+			<BlogCard
+				href="https://medium.com/@alexsanchezdesigns/what-the-hell-is-jamstack-5ef002963f26"
+				src="assets/img/jamstack-thumbnail.webp"
+				title="What (the Hell) Is JAMstack?"
+				excerpt="The future of the internet lies in blazing-fast static sites powered by client-side JavaScript, APIs, and Markup."
+			/>
+		</div>
+	</Container>
+</section>
+
+<style lang="scss">
+	@import "../styles/variables.scss";
+</style>

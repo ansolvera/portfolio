@@ -1,0 +1,76 @@
+---
+import { Icon } from "astro-icon";
+
+export interface Props {
+	href: string;
+	title: string;
+	excerpt?: string;
+	src: string;
+}
+
+const { href, title, excerpt, src } = Astro.props;
+---
+
+<a href={href} target="_blank" class="blog--card">
+	<img src={src} alt={title} class="blog--thumbnail shadow-lg mb-6" />
+	<div class="blog--card--bottom">
+		<h5 class="blog--title mb-2">{title}</h5>
+		<p class="blog--excerpt mb-4">{excerpt}</p>
+		<div class="read--more--wrapper gap-1">
+			<p>Read more</p>
+			<Icon name="ri:arrow-right-up-line" />
+		</div>
+	</div>
+</a>
+
+<style lang="scss">
+	@import "../styles/variables.scss";
+
+	.blog--card {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+
+		&:hover {
+			h5 {
+				color: map-get($primary, "500");
+			}
+			.blog--thumbnail {
+				transform: translateY(-2px);
+			}
+		}
+	}
+
+	.blog--thumbnail {
+		width: 100%;
+		height: 10rem;
+		aspect-ratio: 16/9;
+		border-radius: 0.5rem;
+		object-fit: cover;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	h5 {
+		font-weight: 600;
+		transition: color 0.3s ease-in-out;
+	}
+
+	.blog--excerpt {
+		font-size: map-get($font-size, "300");
+		color: map-get($neutrals, "500");
+	}
+
+	.read--more--wrapper {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		color: map-get($primary, "500");
+	}
+
+	.read--more--wrapper p {
+		line-height: 1;
+		font-weight: 500;
+		color: map-get($primary, "500");
+	}
+</style>

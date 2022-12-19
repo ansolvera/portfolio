@@ -1,0 +1,61 @@
+---
+import Container from "./Container.astro";
+---
+
+<section id="logos" class="section py-4">
+	<Container>
+		<div class="logos--wrapper">
+			<div class="logos">
+				<img src="/assets/img/photoshop.svg" alt="Photoshop logo" />
+				<img src="/assets/img/illustrator.svg" alt="Illustrator logo" />
+				<img src="/assets/img/react.svg" alt="React logo" />
+				<img src="/assets/img/astro.svg" alt="Astro logo" />
+				<img src="/assets/img/figma.svg" alt="Figma logo" />
+				<img src="/assets/img/tailwind.svg" alt="Tailwind logo" />
+				<img src="/assets/img/webflow.svg" alt="Webflow logo" />
+				<img src="/assets/img/wordpress.svg" alt="Wordpress logo" />
+			</div>
+		</div>
+	</Container>
+</section>
+
+<style lang="scss">
+	@import "../styles/variables.scss";
+
+	.logos--wrapper {
+		display: inline-flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+
+	.logos {
+		display: inline-flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		gap: map-get($spacing, "400");
+		margin-inline: auto;
+		padding-block: map-get($spacing, "200");
+		padding-inline: map-get($spacing, "600");
+		border: 1px solid map-get($neutrals, "100");
+		border-radius: 1rem;
+		background-color: rgba(map-get($neutrals, "100"), 0.1);
+	}
+
+	.logos img {
+		position: relative;
+		width: 3.5rem;
+		height: 3.5rem;
+		object-fit: contain;
+		filter: drop-shadow(0 4px 6px rgba($black, 0.1));
+		transform: scale(1);
+		transition: 0.3s all ease-in-out;
+
+		&:hover {
+			transform: scale(2.25);
+			margin-inline: map-get($spacing, "600");
+		}
+	}
+</style>

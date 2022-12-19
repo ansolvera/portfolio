@@ -1,0 +1,15 @@
+@mixin hidden-for-mobile($display: block) {
+	display: none;
+
+	@media screen and (min-width: map-get($breakpoints, "lg")) {
+		display: $display;
+	}
+}
+
+@mixin hidden-for-desktop($display: block) {
+	display: $display;
+
+	@media screen and (min-width: map-get($breakpoints, "lg")) {
+		display: none;
+	}
+}

@@ -1,0 +1,80 @@
+---
+export interface Props {
+	author?: string;
+	title?: string;
+	content?: string;
+	src?: string;
+}
+
+const { author, title, content, src } = Astro.props;
+---
+
+<div class="testimonial shadow-xs">
+	<div class="testimonial--content">
+		<p class="mb-6">{content}</p>
+		<div class="testimonial--bottom">
+			<div>
+				<p class="testimonial--author">{author}</p>
+				<p class="testimonial--title">{title}</p>
+			</div>
+			<img src={src} alt="{author}" class="testimonial--avatar" />
+		</div>
+	</div>
+</div>
+
+<style lang="scss">
+	@import "../styles/variables.scss";
+
+	.testimonial {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: stretch;
+		padding-block: map-get($spacing, "800");
+		padding-inline: map-get($spacing, "600");
+		background-color: rgba(map-get($neutrals, "100"), 0.25);
+		border: 1px solid rgba(map-get($neutrals, "100"), 0.5);
+		border-radius: 0.5rem;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0.5rem;
+			right: 0.5rem;
+			display: inline-block;
+			width: 3rem;
+			height: 3rem;
+			background-image: url("assets/img/double-quotes.svg");
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: contain;
+			opacity: 0.1;
+		}
+	}
+
+	.testimonial--bottom {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: map-get($spacing, "400");
+		border-top: 1px solid map-get($neutrals, "100");
+	}
+
+	.testimonial--author {
+		font-weight: 700;
+		color: map-get($neutrals, "800");
+	}
+
+	.testimonial--title {
+		font-size: map-get($font-size, "300");
+		font-weight: 500;
+		color: map-get($neutrals, "400");
+	}
+
+	.testimonial--avatar {
+		display: inline-block;
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+</style>

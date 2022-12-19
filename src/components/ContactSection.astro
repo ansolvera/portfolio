@@ -1,0 +1,68 @@
+---
+import Container from "../components/Container.astro";
+import ContactForm from "./ContactForm.astro";
+
+const sectionName = "Contact Me";
+const sectionHeading = "Got a project in mind? Let's talk about it!";
+const sectionSubheading =
+	"Just fill out the form below, and if it sounds like we'd be a good fit to work together, I'll reach out to schedule a Zoom chat with you.";
+---
+
+<section id="contact" class="section py-9">
+	<Container>
+		<div class="grid-cols-2 gap-9">
+			<div class="contact--left">
+				<div class="helmet mb-6">
+					<p class="eyebrow mb-4">{sectionName}</p>
+					<h2 class="contact--heading mb-4">{sectionHeading}</h2>
+					<p class="contact--subheading">{sectionSubheading}</p>
+				</div>
+				<ContactForm />
+			</div>
+			<div class="contact--right">
+				<img src="assets/img/macbook-placeholder.png" alt="" />
+			</div>
+		</div>
+	</Container>
+</section>
+
+<style lang="scss">
+	@import "../styles/variables.scss";
+
+	#contact::after {
+		display: none;
+
+		@media screen and (min-width: map-get($breakpoints, "lg")) {
+			display: block;
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: url("assets/img/macbook-placeholder.png");
+			background-repeat: no-repeat;
+			background-position: calc(100% + 25rem) 50%;
+			background-size: 60rem 40rem;
+			filter: drop-shadow(0 25px 50px rgba($black, 0.25));
+		}
+	}
+
+	.contact--right {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+	}
+
+	.contact--right img {
+		width: 100%;
+		height: 100%;
+
+		@media screen and (min-width: map-get($breakpoints, "lg")) {
+			display: none;
+		}
+	}
+</style>

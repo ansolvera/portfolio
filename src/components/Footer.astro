@@ -1,0 +1,84 @@
+---
+import Container from "../components/Container.astro";
+
+const year = new Date().getFullYear();
+---
+
+<footer id="footer" class="footer">
+	<div class="footer--top py-5">
+		<Container>
+			<div class="footer--wrapper">
+				<a href="/" class="footer--brand">
+					<img src="/assets/img/logo.png" alt="Logo" class="logo" />
+				</a>
+				<ul class="nav--menu">
+					<li class="nav--menu--item">
+						<a href="#about" class="nav--link">About</a>
+					</li>
+					<li class="nav--menu--item">
+						<a href="#portfolio" class="nav--link">Portfolio</a>
+					</li>
+					<li class="nav--menu--item">
+						<a href="#blog" class="nav--link">Blog</a>
+					</li>
+					<li class="nav--menu--item">
+						<a href="#testimonials" class="nav--link">Testimonials</a>
+					</li>
+					<li class="nav--menu--item">
+						<a href="#contact" class="nav--link">Contact</a>
+					</li>
+				</ul>
+				<div class="footer--right"></div>
+			</div>
+		</Container>
+	</div>
+	<div class="footer--bottom py-4">
+		<Container>
+			<p>©{year} Alex Sanchez Designs - All rights reserved.</p>
+		</Container>
+	</div>
+</footer>
+
+<style lang="scss">
+	@import "../styles/mixins.scss";
+	@import "../styles/variables.scss";
+
+	footer {
+		position: relative;
+	}
+
+	.footer--brand,
+	.footer--right {
+		width: auto;
+
+		@media screen and (min-width: map-get($breakpoints, "lg")) {
+			width: 20%;
+		}
+	}
+
+	.footer--wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.footer--menu {
+		width: 60%;
+		justify-content: center;
+		gap: map-get($spacing, "800");
+		list-style: none;
+
+		@include hidden-for-mobile(inline-flex);
+	}
+
+	.footer--bottom {
+		border-top: 1px solid map-get($neutrals, "100");
+	}
+
+	.footer--bottom p {
+		font-size: map-get($font-size, "300");
+		line-height: 1;
+		color: map-get($neutrals, "500");
+		text-align: center;
+	}
+</style>
