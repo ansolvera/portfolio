@@ -33,15 +33,20 @@ import Container from "./Container.astro";
 	.logos {
 		display: inline-flex;
 		flex-direction: row;
-		justify-content: space-around;
+		justify-content: center;
 		align-items: center;
 		gap: map-get($spacing, "400");
+		flex-wrap: wrap;
 		margin-inline: auto;
 		padding-block: map-get($spacing, "200");
 		padding-inline: map-get($spacing, "600");
 		border: 1px solid map-get($neutrals, "100");
 		border-radius: 1rem;
 		background-color: rgba(map-get($neutrals, "100"), 0.1);
+
+		@media screen and (min-width: map-get($breakpoints, "lg")) {
+			justify-content: space-around;
+		}
 	}
 
 	.logos img {

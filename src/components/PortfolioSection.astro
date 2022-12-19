@@ -1,11 +1,12 @@
 ---
 import Container from "../components/Container.astro";
+import { Icon } from "astro-icon";
 import Swiper from "../components/Swiper.jsx";
 
 const sectionName = "Portfolio";
 const sectionHeading = "Check out some of my past work";
 const sectionSubheading =
-	"Get a feel for my unique design style by taking a look at some selections from my portfolio.";
+	"Get a feel for my unique design style by taking a look at some selections from my portfolio. Full case studies are coming soon.";
 ---
 
 <section class="section py-9">
@@ -13,7 +14,13 @@ const sectionSubheading =
 		<div class="helmet text-center mb-8 mx-auto">
 			<p class="eyebrow mb-4">{sectionName}</p>
 			<h2 class="mb-4">{sectionHeading}</h2>
-			<p>{sectionSubheading}</p>
+			<p class="mb-6">{sectionSubheading}</p>
+			<a
+				href="https://dribbble.com/alexsanchezdesign"
+				target="_blank"
+				class="text--link"
+				>View full portfolio<span><Icon name="ri:external-link-fill" /></span>
+			</a>
 		</div>
 	</Container>
 	<div class="swiper--wrapper">

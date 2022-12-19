@@ -670,4 +670,31 @@
 		width: 2.75rem;
 		height: auto;
 	}
+
+	.flex-center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+
+	.text--link {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		gap: map-get($spacing, "200");
+		font-size: map-get($font-size, "500");
+		line-height: 1;
+		font-weight: 450;
+		color: map-get($primary, "500");
+
+		&:hover {
+			color: map-get($primary, "400");
+		}
+
+		&:active,
+		:visited {
+			color: map-get($primary, "600");
+		}
+	}
 </style>

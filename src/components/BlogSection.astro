@@ -1,5 +1,6 @@
 ---
 import Container from "../components/Container.astro";
+import { Icon } from "astro-icon";
 import BlogCard from "./BlogCard.astro";
 
 const sectionName = "Blog";
@@ -13,7 +14,13 @@ const sectionSubheading =
 		<div class="helmet text-center mb-8 mx-auto">
 			<p class="eyebrow mb-4">{sectionName}</p>
 			<h2 class="mb-4">{sectionHeading}</h2>
-			<p>{sectionSubheading}</p>
+			<p class="mb-6">{sectionSubheading}</p>
+			<a
+				href="https://alexsanchezdesigns.medium.com/"
+				target="_blank"
+				class="text--link"
+				>Read all blog posts<span><Icon name="ri:external-link-fill" /></span>
+			</a>
 		</div>
 		<div class="grid-cols-4 gap-6">
 			<BlogCard
