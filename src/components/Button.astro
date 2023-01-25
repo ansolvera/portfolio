@@ -1,14 +1,18 @@
 ---
 export interface Props {
 	href: string;
+	isBlank?: boolean;
 	label: string;
 	isSecondary?: boolean;
 }
 
-const { href, label, isSecondary } = Astro.props as Props;
+const { href, isBlank, label, isSecondary } = Astro.props as Props;
 ---
 
-<a href={href} class:list={["btn", { secondary: isSecondary }]}>
+<a
+	href={href}
+	target={isBlank ? "_blank" : "_self"}
+	class:list={["btn", { secondary: isSecondary }]}>
 	<slot name="icon--left" />
 	{label}
 	<slot name="icon--right" />

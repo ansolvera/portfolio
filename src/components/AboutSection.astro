@@ -4,7 +4,7 @@ import Button from "./Button.astro";
 import { Icon } from "astro-icon";
 
 const sectionName = "About Me";
-const sectionHeading = "A little bit about who I am";
+const sectionHeading = "A little bit about<br/> who I am";
 const sectionSubheading =
 	"I'm a self-taught UI/UX designer and front-end JavaScript developer with 5+ years of experience in end-to-end digital design.";
 ---
@@ -15,7 +15,7 @@ const sectionSubheading =
 			<div class="about--left">
 				<div class="helmet mb-8">
 					<p class="eyebrow mb-4">{sectionName}</p>
-					<h2 class="mb-4">{sectionHeading}</h2>
+					<h2 class="mb-4" set:html={sectionHeading} />
 					<p class="mb-6">
 						{sectionSubheading}
 					</p>

@@ -9,14 +9,38 @@ import Container from "./Container.astro";
 		</div>
 		<div class="logos--wrapper">
 			<div class="logos">
-				<img src="/assets/img/photoshop.svg" alt="Photoshop logo" />
-				<img src="/assets/img/illustrator.svg" alt="Illustrator logo" />
-				<img src="/assets/img/react.svg" alt="React logo" />
-				<img src="/assets/img/astro.svg" alt="Astro logo" />
-				<img src="/assets/img/figma.svg" alt="Figma logo" />
-				<img src="/assets/img/tailwind.svg" alt="Tailwind logo" />
-				<img src="/assets/img/webflow.svg" alt="Webflow logo" />
-				<img src="/assets/img/wordpress.svg" alt="Wordpress logo" />
+				<div class="logo">
+					<img src="/assets/img/photoshop.svg" alt="Photoshop logo" />
+					<div class="logo--tooltip">Photoshop</div>
+				</div>
+				<div class="logo">
+					<img src="/assets/img/illustrator.svg" alt="Illustrator logo" />
+					<div class="logo--tooltip">Illustrator</div>
+				</div>
+				<div class="logo">
+					<img src="/assets/img/react.svg" alt="React logo" />
+					<div class="logo--tooltip">React</div>
+				</div>
+				<div class="logo">
+					<img src="/assets/img/astro.svg" alt="Astro logo" />
+					<div class="logo--tooltip">Astro</div>
+				</div>
+				<div class="logo">
+					<img src="/assets/img/figma.svg" alt="Figma logo" />
+					<div class="logo--tooltip">Figma</div>
+				</div>
+				<div class="logo">
+					<img src="/assets/img/tailwind.svg" alt="Tailwind logo" />
+					<div class="logo--tooltip">Tailwind</div>
+				</div>
+				<div class="logo">
+					<img src="/assets/img/webflow.svg" alt="Webflow logo" />
+					<div class="logo--tooltip">Webflow</div>
+				</div>
+				<div class="logo">
+					<img src="/assets/img/wordpress.svg" alt="Wordpress logo" />
+					<div class="logo--tooltip">WordPress</div>
+				</div>
 			</div>
 		</div>
 	</Container>
@@ -24,6 +48,17 @@ import Container from "./Container.astro";
 
 <style lang="scss">
 	@import "../styles/variables.scss";
+
+	@keyframes appear {
+		from {
+			visibility: hidden;
+			opacity: 0;
+		}
+		to {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
 
 	p {
 		font-family: "Caveat";
@@ -59,18 +94,57 @@ import Container from "./Container.astro";
 		}
 	}
 
+	.logo {
+		position: relative;
+
+		&:hover {
+			.logo--tooltip {
+				animation: appear 0.3s forwards;
+			}
+		}
+	}
+
+	.logo--tooltip {
+		position: absolute;
+		top: calc(-50% - 0.25rem);
+		left: 50%;
+		transform: translateX(-50%);
+		width: auto;
+		height: auto;
+		padding-block: map-get($spacing, "100");
+		padding-inline: map-get($spacing, "300");
+		background-color: map-get($neutrals, "500");
+		border-radius: 0.25rem;
+		font-size: map-get($font-size, "300");
+		line-height: 1;
+		font-weight: 500;
+		color: $white;
+		visibility: hidden;
+		opacity: 0;
+		&::after {
+			content: "";
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			width: 0;
+			height: 0;
+			border: solid transparent;
+			pointer-events: none;
+		}
+
+		&::after {
+			border-color: rgba(map-get($neutrals, "500"), 0);
+			border-top-color: map-get($neutrals, "500");
+			border-width: 0.5rem;
+			margin-left: -0.5rem;
+		}
+	}
+
 	.logos img {
 		position: relative;
 		width: 3.5rem;
 		height: 3.5rem;
 		object-fit: contain;
 		filter: drop-shadow(0 4px 6px rgba($black, 0.1));
-		transform: scale(1);
-		transition: 0.3s all ease-in-out;
-
-		&:hover {
-			transform: scale(2.25);
-			margin-inline: map-get($spacing, "600");
-		}
 	}
 </style>

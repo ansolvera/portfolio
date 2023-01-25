@@ -4,7 +4,7 @@ import { Icon } from "astro-icon";
 import Swiper from "../components/Swiper.jsx";
 
 const sectionName = "Portfolio";
-const sectionHeading = "Check out some of my past work";
+const sectionHeading = "Check out some of my <br/> past work";
 const sectionSubheading =
 	"Get a feel for my unique design style by taking a look at some selections from my portfolio. Full case studies are coming soon.";
 ---
@@ -13,7 +13,7 @@ const sectionSubheading =
 	<Container>
 		<div class="helmet text-center mb-8 mx-auto">
 			<p class="eyebrow mb-4">{sectionName}</p>
-			<h2 class="mb-4">{sectionHeading}</h2>
+			<h2 class="mb-4" set:html={sectionHeading} />
 			<p class="mb-6">{sectionSubheading}</p>
 			<a
 				href="https://dribbble.com/alexsanchezdesign"

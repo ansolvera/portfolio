@@ -3,7 +3,7 @@ import Container from "../components/Container.astro";
 import ContactForm from "./ContactForm.astro";
 
 const sectionName = "Contact Me";
-const sectionHeading = "Got a project in mind? Let's talk about it!";
+const sectionHeading = "Got a project in mind? <br/> Let's talk about it!";
 const sectionSubheading =
 	"Just fill out the form below, and if it sounds like we'd be a good fit to work together, I'll reach out to schedule a Zoom chat with you.";
 ---
@@ -14,7 +14,7 @@ const sectionSubheading =
 			<div class="contact--left">
 				<div class="helmet mb-6">
 					<p class="eyebrow mb-4">{sectionName}</p>
-					<h2 class="contact--heading mb-4">{sectionHeading}</h2>
+					<h2 class="contact--heading mb-4" set:html={sectionHeading} />
 					<p class="contact--subheading">{sectionSubheading}</p>
 				</div>
 				<ContactForm />

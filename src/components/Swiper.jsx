@@ -1,4 +1,4 @@
-import { Navigation, Pagination } from "swiper";
+import { Navigation, Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
 import "swiper/scss/navigation";
@@ -18,7 +18,10 @@ export default () => {
 						spaceBetween: 30,
 					},
 				}}
-				modules={[Navigation, Pagination]}
+				modules={[Navigation, Pagination, Autoplay]}
+				autoplay={{
+					duration: 5000,
+				}}
 				slidesPerGroup={1}
 				centeredSlides={true}
 				loop={true}

@@ -628,6 +628,14 @@
 	/* Other
 	======================================== */
 
+	br {
+		display: none;
+
+		@media screen and (min-width: map-get($breakpoints, "lg")) {
+			display: inline-block;
+		}
+	}
+
 	.eyebrow {
 		font-family: "Caveat", sans-serif;
 		font-size: map-get($font-size, "600");
